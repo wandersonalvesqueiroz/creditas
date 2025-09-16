@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Simulação de Empréstimo
+  version: 1.0.0
+  description: API REST para simular empréstimos com base em valor solicitado, data de nascimento do cliente e prazo de pagamento.
+
+servers:
+  - url: http://localhost:8080
+    description: Ambiente local de desenvolvimento
+
+paths:
+  /simulate-loan:
+    post:
+      operationId: simulateLoan
+      summary: Simula um empréstimo
+      description: Retorna os detalhes da simulação de empréstimo com base nos dados fornecidos pelo cliente.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimulateLoanRequest'
+      responses:
+        '200':
+          description: Simulação realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimulateLoanResponse'
+        '400':
+          description: Requisição inválida
+        '500':
+          description: Erro interno do servidor
+
+components:
+  schemas:
+    SimulateLoanRequest:
+      type: object
+      required:
+        - loanAmount
+        - birthDate
+        - paymentTermMonths
+      properties:
+        loanAmount:
+          type: number
+          format: double
+          example: 15000.00
+          description: Valor do empréstimo solicitado
+        birthDate:
+          type: string
+          format: date
+          example: 1985-06-15
+          description: Data de nascimento do cliente (formato YYYY-MM-DD)
+        paymentTermMonths:
+          type: integer
+          example: 24
+          description: Prazo de pagamento em meses
+
+    SimulateLoanResponse:
+      type: object
+      properties:
+        monthlyInstallment:
+          type: number
+          example: 687.50
+          description: Valor da parcela mensal.
+        totalAmount:
+          type: number
+          example: 16500.00
+          description: Valor total a ser pago.
+        totalRate:
+          type: number
+          example: 150.00
+          description: Total de juros pagos.
+
+  responses:
+    BadRequest:
+      description: Requisição inválida
+    InternalServerError:
+      description: Erro interno do servidor
