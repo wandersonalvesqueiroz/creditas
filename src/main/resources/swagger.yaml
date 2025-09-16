@@ -9,7 +9,7 @@ servers:
     description: Ambiente local de desenvolvimento
 
 paths:
-  /simulate-loan:
+  /simulations:
     post:
       operationId: simulateLoan
       summary: Simula um empréstimo

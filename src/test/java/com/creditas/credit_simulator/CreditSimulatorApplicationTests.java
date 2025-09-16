@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CreditSimulatorApplicationTests {
 
     private static final String URL = "http://localhost:";
-    private static final String ENDPOINT = "/simulate-loan";
+    private static final String ENDPOINT = "/simulations";
     private static final double LOAN_AMOUNT = 100.00;
     private static final Date BIRTH_DATE = Date.from(Instant.parse("1990-01-01T00:00:00Z"));
     private static final int PAYMENT_TERM_MONTHS = 10;

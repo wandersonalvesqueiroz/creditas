@@ -105,9 +105,9 @@ git clone https://github.com/wandersonalvesqueiroz/creditas.git
 
 ## 🔄 Endpoints Disponíveis
 
-| Método | Endpoint               | Descrição                                            |
-|--------|------------------------|------------------------------------------------------|
-| GET    | `/simulate-loan`       | Calcula o valor de crédito disponível para o cliente |
+| Método | Endpoint       | Descrição                                            |
+|--------|----------------|------------------------------------------------------|
+| POST   | `/simulations` | Calcula o valor de crédito disponível para o cliente |
 
 ---
 

@@ -15,6 +15,9 @@ services:
 
   credit-simulator:
     image: credit-simulator
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: creditas
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/credit_simulator
